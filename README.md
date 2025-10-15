@@ -179,10 +179,7 @@ npm run dev
 
 ✅ **O frontend estará disponível em:** `http://localhost:5173`
 
-#### 4. Build para produção
-```bash
-npm run build
-```
+
 
 ### 🌟 Funcionalidades do Frontend
 
