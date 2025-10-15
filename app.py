@@ -1,10 +1,22 @@
 import os
+
 import requests
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 
 load_dotenv()
 app = Flask(__name__)
+
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers',
+                         'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods',
+                         'GET,PUT,POST,DELETE,OPTIONS')
+    return response
+
 
 # Configuração
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -20,6 +32,7 @@ AVAILABLE_MODELS = [
     "gemma-7b-it"
 ]
 
+
 def call_groq_api(question):
     """Chama a API do Groq com fallback entre modelos"""
     if not GROQ_API_KEY:
@@ -32,8 +45,11 @@ def call_groq_api(question):
 
     # Prompt especializado para assistente de vendas pet
     system_prompt = (
-        "Você é um assistente de vendas especialista em produtos para pets (cães e gatos) "
-        "de um e-commerce como a Petlove. Responda de forma amigável, profissional e concisa."
+        "Você é um assistente de vendas especialista em produtos para pets da Petlove. "
+        "Responda de forma amigável e didática, explicando o básico em 4-5 linhas. "
+        "Use emojis e organize as informações de forma clara. "
+        "Dê recomendações práticas e específicas, mas explique o porquê. "
+        "Seja educativo mas não muito extenso."
     )
 
     for model in AVAILABLE_MODELS:
@@ -44,11 +60,12 @@ def call_groq_api(question):
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": question}
                 ],
-                "max_tokens": 500,
+                "max_tokens": 250,  # Permite explicações um pouco maiores
                 "temperature": 0.7
             }
 
-            response = requests.post(GROQ_URL, headers=headers, json=payload, timeout=30)
+            response = requests.post(
+                GROQ_URL, headers=headers, json=payload, timeout=30)
 
             if response.status_code == 200:
                 result = response.json()
@@ -64,6 +81,7 @@ def call_groq_api(question):
             continue
 
     return None, "Nenhum modelo disponível"
+
 
 @app.route("/api/question-and-answer", methods=['POST'])
 def question_and_answer():
@@ -92,6 +110,7 @@ def question_and_answer():
         return jsonify({"response": response_text})
     else:
         return jsonify({"error": error}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
