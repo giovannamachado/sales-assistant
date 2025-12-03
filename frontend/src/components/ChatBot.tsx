@@ -24,7 +24,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: '🐾 **Olá! Sou seu Assistente PetLove!**\n\n🤖 **O que posso fazer por você:**\n• Recomendar rações ideais para seu pet\n• Sugerir brinquedos e acessórios\n• Orientar sobre cuidados veterinários\n• Dar dicas de alimentação e bem-estar\n\n💡 **Experimente as sugestões abaixo ou digite sua própria pergunta!**',
+      text: '🐾 **Olá! Sou seu Assistente Pet!**\n\n🤖 **O que posso fazer por você:**\n• Recomendar rações ideais para seu pet\n• Sugerir brinquedos e acessórios\n• Orientar sobre cuidados veterinários\n• Dar dicas de alimentação e bem-estar\n\n💡 **Experimente as sugestões abaixo ou digite sua própria pergunta!**',
       isUser: false,
       timestamp: new Date()
     }
@@ -105,7 +105,7 @@ const ChatBot = () => {
     setMessages([
       {
         id: '1',
-        text: '🐾 **Olá! Sou seu Assistente PetLove!**\n\n🤖 **O que posso fazer por você:**\n• Recomendar rações ideais para seu pet\n• Sugerir brinquedos e acessórios\n• Orientar sobre cuidados veterinários\n• Dar dicas de alimentação e bem-estar\n\n💡 **Experimente as sugestões abaixo ou digite sua própria pergunta!**',
+        text: '🐾 **Olá! Sou seu Assistente Pet!**\n\n🤖 **O que posso fazer por você:**\n• Recomendar rações ideais para seu pet\n• Sugerir brinquedos e acessórios\n• Orientar sobre cuidados veterinários\n• Dar dicas de alimentação e bem-estar\n\n💡 **Experimente as sugestões abaixo ou digite sua própria pergunta!**',
         isUser: false,
         timestamp: new Date()
       }
@@ -116,7 +116,7 @@ const ChatBot = () => {
     <div className="chatbot-container">
       <div className="chatbot-header">
         <MessageCircle className="header-icon" />
-        <h2>Assistente PetLove</h2>
+        <h2>Assistente Pet</h2>
         <button onClick={clearChat} className="clear-button">
           Limpar
         </button>

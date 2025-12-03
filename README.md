@@ -1,10 +1,10 @@
-# 🐾 Sales Assistant API
+# 🐾 Pet Sales Assistant
 
-> **Assistente de vendas inteligente para e-commerce de produtos pet**
+> **Assistente de vendas inteligente com IA para e-commerce de produtos pet**
 
 ## 📋 Sobre o Projeto
 
-Este é um **assistente de vendas especializado** que utiliza inteligência artificial para responder perguntas sobre produtos para pets. A API integra-se com modelos de linguagem avançados da **Groq** para oferecer recomendações personalizadas sobre:
+Este é um **assistente de vendas especializado** que utiliza inteligência artificial para responder perguntas sobre produtos para pets. A aplicação integra-se com modelos de linguagem avançados da **Groq AI** para oferecer recomendações personalizadas sobre:
 
 - 🐕 **Rações ideais** para diferentes raças e idades
 - 🧸 **Brinquedos e acessórios** seguros e adequados
@@ -13,9 +13,10 @@ Este é um **assistente de vendas especializado** que utiliza inteligência arti
 
 ### ✨ Principais características:
 
-- **API REST** simples e eficiente
-- **Fallback automático** entre múltiplos modelos de IA
-- **Respostas educativas** com emojis e formatação clara
+- **API REST** desenvolvida com Flask
+- **Fallback automático** entre 6 modelos de IA da Groq
+- **Interface web moderna** com React + TypeScript
+- **Respostas educativas** formatadas e contextualizadas
 - **CORS habilitado** para integração frontend
 
 ---
@@ -30,7 +31,7 @@ Este é um **assistente de vendas especializado** que utiliza inteligência arti
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/giovannamachado/sales-assistant.git
+git clone https://github.com/seu-usuario/sales-assistant.git
 cd sales-assistant
 ```
 
